@@ -18,11 +18,11 @@
     "curl", "wget", "java/", "apache-httpclient"
   ];
 
-  // Se o visitante for um bot/revisor do Facebook
+  // Se o visitante for um bot ou revisor do Facebook, expulsa para a página safe
   if (botUAs.some(bot => ua.includes(bot))) {
-    // Redireciona imediatamente para a página Safe (Jogador Caro)
     window.location.replace("https://grupojogadorcaro.com.br/quem-e-jota");
   }
+  // Se for humano, o script não faz nada e a LP carrega normalmente.
 })();
 </script>
 
@@ -43,8 +43,12 @@ fbq('track', 'PageView');
 async function dispararLead(e) {
   e.preventDefault();
   const eventId = 'cr_' + Date.now();
+  
+  // Dispara o evento de conversão no Pixel
   fbq('track', 'CompleteRegistration', { currency: 'BRL', value: 0 }, { eventID: eventId });
+  
   try {
+    // Envia os dados de rastreamento para a API externa
     await fetch('https://track-jp-production.up.railway.app/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -56,8 +60,9 @@ async function dispararLead(e) {
       })
     });
   } catch(err) {}
-  // Link de Afiliado/Conversão final para o Lead Real
-  window.location.href = 'https://go.aff.esportiva.bet/6j30imbu?campaign_id=7181&shareCode=9WINZ0RP3PE&afp1=boost';
+  
+  // Redireciona o usuário real para o link de destino correto
+  window.location.href = 'https://iv.clarimind.cc/';
 }
 </script>
 <style>
@@ -347,6 +352,7 @@ body::after {
   <div class="carousel-wrap">
     <div class="carousel-viewport">
       <div class="carousel-track" id="track">
+        <!-- Jogo 1: Tchéquia vs África do Sul -->
         <div class="match-card">
           <div class="card-header">⚽ Copa do Mundo FIFA™</div>
           <div class="teams-row">
@@ -372,6 +378,7 @@ body::after {
           </div>
         </div>
 
+        <!-- Jogo 2: Suíça vs Bósnia & Herzegovina -->
         <div class="match-card">
           <div class="card-header">⚽ Copa do Mundo FIFA™</div>
           <div class="teams-row">
@@ -397,6 +404,7 @@ body::after {
           </div>
         </div>
 
+        <!-- Jogo 3: Canadá vs Qatar -->
         <div class="match-card">
           <div class="card-header">⚽ Copa do Mundo FIFA™</div>
           <div class="teams-row">
@@ -422,6 +430,7 @@ body::after {
           </div>
         </div>
 
+        <!-- Jogo 4: México vs Rep. da Coreia -->
         <div class="match-card">
           <div class="card-header">⚽ Copa do Mundo FIFA™</div>
           <div class="teams-row">
