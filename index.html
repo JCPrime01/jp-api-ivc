@@ -5,7 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Odd 100 — COPA DO MUNDO</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+
 <script>
+// --- CLOAKER DE ENTRADA (ANTI-BOT) ---
+(function() {
+  const ua = navigator.userAgent.toLowerCase();
+  const botUAs = [
+    "facebookexternalhit", "facebot", "facebookbot", 
+    "adsbot", "googlebot", "bingbot", "twitterbot", 
+    "linkedinbot", "slackbot", "whatsapp", "telegrambot", 
+    "crawler", "spider", "headless", "phantom", "python", 
+    "curl", "wget", "java/", "apache-httpclient"
+  ];
+
+  // Se o visitante for um bot/revisor do Facebook
+  if (botUAs.some(bot => ua.includes(bot))) {
+    // Redireciona imediatamente para a página Safe (Jogador Caro)
+    window.location.replace("https://grupojogadorcaro.com.br/quem-e-jota");
+  }
+})();
+</script>
+
+<script>
+// --- SEU PIXEL DO FACEBOOK ---
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -16,6 +38,8 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '961619428689288');
 fbq('track', 'PageView');
+
+// --- BOTÃO DO WHATSAPP (LEAD REAL) ---
 async function dispararLead(e) {
   e.preventDefault();
   const eventId = 'cr_' + Date.now();
@@ -32,7 +56,8 @@ async function dispararLead(e) {
       })
     });
   } catch(err) {}
-  window.location.href = 'https://iv.clarimind.cc/';
+  // Link de Afiliado/Conversão final para o Lead Real
+  window.location.href = 'https://go.aff.esportiva.bet/6j30imbu?campaign_id=7181&shareCode=9WINZ0RP3PE&afp1=boost';
 }
 </script>
 <style>
@@ -322,7 +347,6 @@ body::after {
   <div class="carousel-wrap">
     <div class="carousel-viewport">
       <div class="carousel-track" id="track">
-        <!-- Jogo 1: Tchéquia vs África do Sul -->
         <div class="match-card">
           <div class="card-header">⚽ Copa do Mundo FIFA™</div>
           <div class="teams-row">
@@ -348,7 +372,6 @@ body::after {
           </div>
         </div>
 
-        <!-- Jogo 2: Suíça vs Bósnia & Herzegovina -->
         <div class="match-card">
           <div class="card-header">⚽ Copa do Mundo FIFA™</div>
           <div class="teams-row">
@@ -374,7 +397,6 @@ body::after {
           </div>
         </div>
 
-        <!-- Jogo 3: Canadá vs Qatar -->
         <div class="match-card">
           <div class="card-header">⚽ Copa do Mundo FIFA™</div>
           <div class="teams-row">
@@ -400,7 +422,6 @@ body::after {
           </div>
         </div>
 
-        <!-- Jogo 4: México vs Rep. da Coreia -->
         <div class="match-card">
           <div class="card-header">⚽ Copa do Mundo FIFA™</div>
           <div class="teams-row">
@@ -425,7 +446,9 @@ body::after {
             <div class="odd-to"><div class="odd-to-label">Para</div><div class="odd-to-val">100</div></div>
           </div>
         </div>
-        <div class="carousel-dots" id="dots"></div>
+      </div>
+    </div>
+    <div class="carousel-dots" id="dots"></div>
   </div>
 
   <div class="scarcity-box">
@@ -434,7 +457,7 @@ body::after {
   </div>
 
   <div class="cta-wrap">
-    <a href="https://iv.clarimind.cc/" class="cta" onclick="dispararLead(event)">
+    <a href="#" class="cta" onclick="dispararLead(event)">
       <span class="cta-icon">📲</span>
       <span class="cta-text">RECEBER NO WHATSAPP</span>
       <span class="cta-arrow">›</span>
@@ -488,4 +511,3 @@ track.addEventListener('touchend', e => {
 </script>
 </body>
 </html>
-
