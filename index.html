@@ -588,24 +588,24 @@ nav{
 /* ── DATA ── */
 const matches = [
   {
-    f1:'🇳🇴', t1:'Noruega', a1:'NOR',
-    f2:'🇫🇷', t2:'França', a2:'FRA',
-    time:'16:00', phase:'Fase de Grupos · Rodada 3',
-  },
-  {
-    f1:'🇸🇳', t1:'Senegal', a1:'SEN',
-    f2:'🇮🇶', t2:'Iraque', a2:'IRQ',
-    time:'16:00', phase:'Fase de Grupos · Rodada 3',
-  },
-  {
-    f1:'🇨🇻', t1:'Cabo Verde', a1:'CPV',
-    f2:'🇸🇦', t2:'Arábia Saudita', a2:'KSA',
-    time:'21:00', phase:'Fase de Grupos · Rodada 3',
-  },
-  {
-    f1:'🇺🇾', t1:'Uruguai', a1:'URU',
+    f1:'🇵🇹', t1:'Portugal', a1:'POR',
     f2:'🇪🇸', t2:'Espanha', a2:'ESP',
-    time:'21:00', phase:'Fase de Grupos · Rodada 3',
+    time:'16:00', phase:'Oitavas de Final', tournament:'🌍 Copa do Mundo FIFA™️',
+  },
+  {
+    f1:'🇺🇸', t1:'Estados Unidos', a1:'USA',
+    f2:'🇧🇪', t2:'Bélgica', a2:'BEL',
+    time:'21:00', phase:'Oitavas de Final', tournament:'🌍 Copa do Mundo FIFA™️',
+  },
+  {
+    f1:'🔴', t1:'Vila Nova', a1:'VIL',
+    f2:'🔵', t2:'São Bernardo FC', a2:'SBF',
+    time:'19:00', phase:'Série B Superbet · Rodada 16', tournament:'⚽ Brasileirão Série B',
+  },
+  {
+    f1:'⚫', t1:'Botafogo-SP', a1:'BOT',
+    f2:'🔵', t2:'Avaí', a2:'AVA',
+    time:'19:00', phase:'Série B Superbet · Rodada 16', tournament:'⚽ Brasileirão Série B',
   },
 ];
 
@@ -617,7 +617,7 @@ matches.forEach((m, i) => {
   card.className = `match-card reveal rd${(i % 3) + 1}${isLocked ? ' locked' : ''}`;
   card.innerHTML = `
     <div class="match-tournament">
-      ⚽ Copa do Mundo FIFA™️
+      ${m.tournament}
       <span class="match-phase">${m.phase}</span>
     </div>
     <div class="match-teams">
@@ -663,10 +663,10 @@ matches.forEach((m, i) => {
 
 /* ── TICKER ── */
 const tickerData = [
-    { f1:'🇳🇴', t1:'Noruega',       f2:'🇫🇷', t2:'França',          time:'16:00' },
-  { f1:'🇸🇳', t1:'Senegal',        f2:'🇮🇶', t2:'Iraque',           time:'16:00' },
-  { f1:'🇨🇻', t1:'Cabo Verde',     f2:'🇸🇦', t2:'Arábia Saudita',   time:'21:00' },
-  { f1:'🇺🇾', t1:'Uruguai',        f2:'🇪🇸', t2:'Espanha',          time:'21:00' },
+  { f1:'🇵🇹', t1:'Portugal',       f2:'🇪🇸', t2:'Espanha',         time:'16:00' },
+  { f1:'🇺🇸', t1:'Estados Unidos', f2:'🇧🇪', t2:'Bélgica',          time:'21:00' },
+  { f1:'🔴',  t1:'Vila Nova',      f2:'🔵',  t2:'São Bernardo FC',  time:'19:00' },
+  { f1:'⚫',  t1:'Botafogo-SP',    f2:'🔵',  t2:'Avaí',             time:'19:00' },
 ];
 const inner = document.getElementById('tickerInner');
 let tickerHTML = '';
