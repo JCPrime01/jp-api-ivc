@@ -598,13 +598,13 @@ const matches = [
     time:'21:00', phase:'Oitavas de Final', tournament:'🌍 Copa do Mundo FIFA™️',
   },
   {
-    f1:'🔴', t1:'Vila Nova', a1:'VIL',
-    f2:'🔵', t2:'São Bernardo FC', a2:'SBF',
+    f1:'<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Vila_Nova_Logo_Oficial.svg" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;">', t1:'Vila Nova', a1:'VIL',
+    f2:'<img src="https://upload.wikimedia.org/wikipedia/commons/8/88/S%C3%A3o_Bernardo_FC_2020_crest.png" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;">', t2:'São Bernardo FC', a2:'SBF',
     time:'19:00', phase:'Série B Superbet · Rodada 16', tournament:'⚽ Brasileirão Série B',
   },
   {
-    f1:'⚫', t1:'Botafogo-SP', a1:'BOT',
-    f2:'🔵', t2:'Avaí', a2:'AVA',
+    f1:'<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Botafogo_Futebol_Clube_%28Ribeir%C3%A3o_Preto%29_logo_%282021%29.png" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;">', t1:'Botafogo-SP', a1:'BOT',
+    f2:'<img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Ava%C3%AD_Futebol_Clube_logo.svg" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;">', t2:'Avaí', a2:'AVA',
     time:'19:00', phase:'Série B Superbet · Rodada 16', tournament:'⚽ Brasileirão Série B',
   },
 ];
@@ -665,8 +665,8 @@ matches.forEach((m, i) => {
 const tickerData = [
   { f1:'🇵🇹', t1:'Portugal',       f2:'🇪🇸', t2:'Espanha',         time:'16:00' },
   { f1:'🇺🇸', t1:'Estados Unidos', f2:'🇧🇪', t2:'Bélgica',          time:'21:00' },
-  { f1:'🔴',  t1:'Vila Nova',      f2:'🔵',  t2:'São Bernardo FC',  time:'19:00' },
-  { f1:'⚫',  t1:'Botafogo-SP',    f2:'🔵',  t2:'Avaí',             time:'19:00' },
+  { f1:'<img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Vila_Nova_Logo_Oficial.svg" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;">',   t1:'Vila Nova',      f2:'<img src="https://upload.wikimedia.org/wikipedia/commons/8/88/S%C3%A3o_Bernardo_FC_2020_crest.png" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;">',    t2:'São Bernardo FC',  time:'19:00' },
+  { f1:'<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Botafogo_Futebol_Clube_%28Ribeir%C3%A3o_Preto%29_logo_%282021%29.png" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;">', t1:'Botafogo-SP',    f2:'<img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Ava%C3%AD_Futebol_Clube_logo.svg" style="width:40px;height:40px;object-fit:contain;vertical-align:middle;">',           t2:'Avaí',             time:'19:00' },
 ];
 const inner = document.getElementById('tickerInner');
 let tickerHTML = '';
