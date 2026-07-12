@@ -19,6 +19,27 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1263049232641635');
 fbq('track', 'PageView');
 </script>
+<script>
+async function dispararLead(e) {
+  e.preventDefault();
+  var dest = e.currentTarget.href;
+  var eventId = 'tg_' + Date.now();
+  fbq('track', 'CompleteRegistration', {}, { eventID: eventId });
+  try {
+    await fetch('https://track-telegram-production.up.railway.app/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,
+        fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
+        userAgent: navigator.userAgent,
+        eventId: eventId
+      })
+    });
+  } catch(err) {}
+  window.location.href = dest;
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -541,7 +562,7 @@ nav{
         </p>
 
         <div class="cta-stack">
-          <a href="https://track.grupojc.cc/track/2b978e7e-ce0e-4a1e-bdb7-5b29d12ac761/redirect?utm_campaign=esg" class="btn-primary" onclick="fbq('track', 'CompleteRegistration');">
+          <a href="https://track.grupojc.cc/track/2b978e7e-ce0e-4a1e-bdb7-5b29d12ac761/redirect?utm_campaign=esg" class="btn-primary" onclick="dispararLead(event)">
             📩 RECEBER NO TELEGRAM
             <span class="btn-icon">›</span>
           </a>
@@ -653,7 +674,7 @@ matches.forEach((m, i) => {
       </div>
     </div>
     ${`<div style="margin-top:16px;text-align:center">
-      <a href="https://track.grupojc.cc/track/2b978e7e-ce0e-4a1e-bdb7-5b29d12ac761/redirect?utm_campaign=esg" onclick="fbq('track', 'CompleteRegistration');" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#229ED9,#1A7FC1);color:#fff;font-size:13px;font-weight:800;padding:11px 28px;border-radius:999px;text-decoration:none;letter-spacing:0.5px;box-shadow:0 0 24px rgba(34,158,217,0.4);">
+      <a href="https://track.grupojc.cc/track/2b978e7e-ce0e-4a1e-bdb7-5b29d12ac761/redirect?utm_campaign=esg" onclick="dispararLead(event)" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#229ED9,#1A7FC1);color:#fff;font-size:13px;font-weight:800;padding:11px 28px;border-radius:999px;text-decoration:none;letter-spacing:0.5px;box-shadow:0 0 24px rgba(34,158,217,0.4);">
         🔓 REVELAR ODD NO TELEGRAM
       </a>
     </div>`}
