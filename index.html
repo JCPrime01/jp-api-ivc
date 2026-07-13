@@ -20,23 +20,22 @@ fbq('init', '1263049232641635');
 fbq('track', 'PageView');
 </script>
 <script>
-async function dispararLead(e) {
+function dispararLead(e) {
   e.preventDefault();
   var dest = e.currentTarget.href;
-  var eventId = 'tg_' + Date.now();
+  var eventId = 'tg_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+  var fbp = document.cookie.match(/_fbp=([^;]+)/)?.[1] || null;
+  var fbc = document.cookie.match(/_fbc=([^;]+)/)?.[1] || null;
+
   fbq('track', 'CompleteRegistration', {}, { eventID: eventId });
-  try {
-    await fetch('https://track-telegram-production.up.railway.app/api/lead', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        fbp: document.cookie.match(/_fbp=([^;]+)/)?.[1] || null,
-        fbc: document.cookie.match(/_fbc=([^;]+)/)?.[1] || null,
-        userAgent: navigator.userAgent,
-        eventId: eventId
-      })
-    });
-  } catch(err) {}
+
+  fetch('https://track-telegram-production.up.railway.app/api/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fbp: fbp, fbc: fbc, userAgent: navigator.userAgent, eventId: eventId, externalId: eventId }),
+    keepalive: true
+  }).catch(function(){});
+
   window.location.href = dest;
 }
 </script>
